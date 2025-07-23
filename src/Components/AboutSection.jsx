@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutSection = () => {
   return (
-    <section className="relative w-full min-h-screen px-6 py-10 bg-gradient-to-br from-[#0d021e] via-[#1c0a33] to-[#120521]">
+    <section className=" text relative w-full min-h-screen px-6 py-10 bg-gradient-to-br from-[#0d021e] via-[#1c0a33] to-[#120521]">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="w-[200%] h-[200%] blur-3xl animate-pulse -rotate-12 origin-top-left"></div>
       </div>
