@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+
+@font-face {
+    font-family: "ClashGrotesk";
+    src: url('./ClashGrotesk.otf') format("truetype"); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+.text{
+    font-family: "ClashGrotesk"
+}
+
+
