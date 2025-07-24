@@ -5,7 +5,7 @@ import SpecsSections from "./Components/SpecsSections"
 import Navbar from "./Components/Navbar"
 import ThirdSection from "./Components/ThirdSection"
 import { useLenis } from "./Hooks/UseLenis"
-import Preloader from "./Components/PreLoader"
+import PreLoader from "./Components/PreLoader"
 
 const App = () => {
 
@@ -13,7 +13,7 @@ const App = () => {
   
   return (
     <div className="w-full h-full overflow-auto ">
-      <Preloader/>
+      <PreLoader/>
       <Navbar/>
       <Hero/>
       <AboutSection/>
