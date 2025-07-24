@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const PreLoader = () => {
+const Preloader = () => {
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
 
@@ -72,4 +72,4 @@ const PreLoader = () => {
   );
 };
 
-export default PreLoader;
+export default Preloader;
