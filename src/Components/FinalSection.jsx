@@ -1,40 +1,112 @@
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { motion } from "framer-motion";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 const FinalSection = () => {
+
+    const ctaHeadingRef = useRef();
+    const ctaParaRef = useRef();
+
+    useGSAP(() => {
+        gsap.fromTo(
+            ctaHeadingRef.current,
+            {
+                y: 80,
+                opacity: 0,
+                clipPath: "inset(0 0 100% 0)",
+            },
+            {
+                y: 0,
+                opacity: 1,
+                clipPath: "inset(0 0 0% 0)",
+                duration: 1.2,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: ctaHeadingRef.current,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse",
+                },
+            }
+        );
+
+        gsap.fromTo(
+            ctaParaRef.current,
+            {
+                y: 30,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                delay: 0.2,
+                duration: 1,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ctaParaRef.current,
+                    start: "top 90%",
+                    toggleActions: "play none none reverse",
+                },
+            }
+        );
+    }, []);
+
+
     return (
         <div className="text relative snap-center min-w-full bg-gradient-to-br from-black to-gray-900 text-white flex flex-col items-center justify-center px-6 py-20 text-center">
 
-            <h2 className=" text-6xl font-bold tracking-wide mb-6">
+            <h2 ref={ctaHeadingRef} className=" text-6xl font-bold tracking-wide mb-6">
                 Ready to Capture the Future?
             </h2>
 
-            <p className="text-[21px] text-gray-300 max-w-2xl mb-8">
+            <p ref={ctaParaRef} className="text-[21px] text-gray-300 max-w-2xl mb-8">
                 Unleash unmatched precision, speed & innovation with Sony Alpha.
                 Step into the world of mirrorless excellence.
             </p>
 
-            <button
+            <motion.button
+                whileHover={{ scale: 1.08 }}
+                whileTap={{
+                    scale: 0.96,
+                    boxShadow: "0px 0px 15px rgba(255,255,255,0.2)",
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 onClick={() =>
                     window.open(
                         "https://electronics.sony.com/imaging/interchangeable-lens-cameras/all-interchangeable-lens-cameras/p/ilce9m3b",
                         "_blank"
                     )
                 }
-                className="bg-gradient-to-br from-purple-700 to-black/60 text-white px-8 py-3 rounded-full font-semibold text-md shadow-lg hover:scale-105 transition cursor-pointer"
+                className="relative overflow-hidden bg-gradient-to-br from-purple-700 to-black/60 text-white px-8 py-3 rounded-full font-semibold text-md shadow-lg cursor-pointer group"
             >
-                Experience Alpha 9 III →
-            </button>
+                <span className="relative z-10">Experience Alpha 9 III →</span>
+
+                <motion.span
+                    className="absolute left-0 top-0 w-full h-full bg-white/10 opacity-0 rounded-full"
+                    whileHover={{ opacity: 0.2 }}
+                    transition={{ duration: 0.3 }}
+                />
+
+                <motion.span
+                    className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-white/30 to-white/0 blur-sm rounded-full"
+                    whileHover={{ left: "100%" }}
+                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                />
+            </motion.button>
 
 
-            {/* Footer */}
+
             <div className="mt-16 border-t border-gray-700 pt-6 w-full max-w-6xl flex flex-col sm:flex-row items-center justify-between text-sm text-gray-500 gap-6 px-4">
 
-                {/* Sony Logo Left */}
                 <div className="flex items-center gap-4">
                     <img src="/sony.png" alt="Sony Logo" className="w-24" />
                     <p className="hidden sm:block">© 2025 Sony Corporation. All rights reserved.</p>
                 </div>
 
-                {/* Social Icons Right */}
                 <div className="flex items-center gap-5">
 
                     {/* YouTube */}

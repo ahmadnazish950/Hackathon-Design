@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
+
   return (
     <section className="text relative w-full min-h-screen overflow-hidden text-white ">
 
@@ -34,14 +35,11 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Bottom Section */}
       <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end z-20 px-4">
-        {/* Left Text */}
         <div className=" text text-6xl -tracking-normal font-lg max-w-2xl text-white">
           Discover the art of imaging and innovation.
         </div>
 
-        {/* Right Buttons */}
         <div className="flex gap-4">
           <button className="relative rounded-xl px-6 py-2 backdrop-blur-md text-white font-semibold hover:before:absolute hover:before:inset-0 hover:before:bg-white/20 hover:before:blur-md hover:before:rounded-xl transition-all overflow-hidden group">
             <span className="relative z-10 flex text-sm items-center">
